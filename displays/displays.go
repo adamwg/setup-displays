@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	dispRE      = regexp.MustCompile(`^(\w+) (disconnected|connected)`)
+	dispRE      = regexp.MustCompile(`^([0-9A-Za-z_-]+) (disconnected|connected)`)
 	edidStartRE = regexp.MustCompile(`^\s+EDID:`)
 	edidRE      = regexp.MustCompile(`^\s+[a-f0-9]+`)
 )
@@ -105,7 +105,7 @@ func decodeSerial(edid string) (string, error) {
 		in.Close()
 	}()
 
-	re := regexp.MustCompile(`Serial Number (\w+)`)
+	re := regexp.MustCompile(`Serial Number: (\w+)`)
 	sc := bufio.NewScanner(out)
 	cmd.Start()
 	var serial string

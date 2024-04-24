@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"os/exec"
 	"time"
 
 	"github.com/adamwg/setup-displays/displays"
@@ -63,4 +64,6 @@ func main() {
 			}
 		}
 	}
+
+	exec.Command("feh", "--bg-scale", "/home/awg/.config/i3/wallpaper.png").Run()
 }
